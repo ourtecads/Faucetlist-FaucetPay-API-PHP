@@ -1,5 +1,5 @@
 <?php
-$base_url = "https://yourdomain.com/faucetlist.php";
+$base_url = "https://startsites.xyz/test1/faucetlist.php";
 $faucetpay_url = "https://faucetpay.io/api/listv1/faucetlist";
 $param = ["api_key" => "90332fc9fc6cd179235a0f1cb1b1bf38179653b6"];
 $url = $faucetpay_url;
@@ -88,18 +88,18 @@ $number_of_pages = intval(count($faucetlist)/$nb_elem_per_page)+1;
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 <?php if($current_page > 1) { ?>
-                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=$_GET['currency']?>&page=<?=$current_page-1?>">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=strtolower($currency)?>&page=<?=$current_page-1?>">Previous</a></li>
                 <?php if($current_page >= 3) { ?>
-                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=$_GET['currency']?>&page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=strtolower($currency)?>&page=1">1</a></li>
                 <li class="page-item"><span class="page-link">...</span></li>
                 <?php }  }  if($current_page > 1) {  for($i=1;$i<$number_of_pages;$i++){ if($i <= $current_page+1 && $i > $current_page-2){ ?>
-                <li class="page-item <?php if($i == $current_page) {echo 'active';} ?>"><a class="page-link" href="<?=$base_url?>?currency=<?=$_GET['currency']?>&page=<?=$i?>"><?=$i?></a></li>
+                <li class="page-item <?php if($i == $current_page) {echo 'active';} ?>"><a class="page-link" href="<?=$base_url?>?currency=<?=strtolower($currency)?>&page=<?=$i?>"><?=$i?></a></li>
                 <?php }} }else{  for($i=1;$i<$number_of_pages;$i++){ if($i <= 4 && $i > 1){ ?>
-                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=$_GET['currency']?>&page=<?=$i?>"><?=$i?></a></li>
+                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=strtolower($currency)?>&page=<?=$i?>"><?=$i?></a></li>
                 <?php }}  } ?>
-                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=$_GET['currency']?>&page=<?=$current_page+1?>">Next</a></li>
+                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=strtolower($currency)?>&page=<?=$current_page+1?>">Next</a></li>
                 <?php if($current_page < $number_of_pages) { ?>
-                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=$_GET['currency']?>&page=<?=$number_of_pages?>">Last</a></li>
+                <li class="page-item"><a class="page-link" href="<?=$base_url?>?currency=<?=strtolower($currency)?>&page=<?=$number_of_pages?>">Last</a></li>
                 <?php }?>
               </ul>
             </nav>
